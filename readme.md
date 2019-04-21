@@ -1,6 +1,6 @@
 # git-push-pr
 
-[![Build Status](https://travis-ci.com/tobiasbueschel/git-push-pr.svg?branch=master)](https://travis-ci.com/tobiasbueschel/git-push-pr)
+[![Build Status](https://img.shields.io/travis/tobiasbueschel/git-push-pr/master.svg?style=flat-square)](https://travis-ci.com/tobiasbueschel/git-push-pr)
 [![version](https://img.shields.io/npm/v/git-push-pr.svg?style=flat-square)](http://npm.im/git-push-pr)
 [![downloads](https://img.shields.io/npm/dm/git-push-pr.svg?style=flat-square)](http://npm-stat.com/charts.html?package=git-push-pr)
 [![MIT License](https://img.shields.io/npm/l/git-push-pr.svg?style=flat-square)](http://opensource.org/licenses/MIT)
