@@ -52,7 +52,10 @@ async function gitPushPR(options) {
   const gitPushStr = `git push ${options.remote} --set-upstream ${currentBranch} ${silentFlag} ${verifyFlag} ${forceFlag}`
 
   // 5. Push to remote
-  const spinner = ora('[git-push-pr]: pushing code to remote\n').start()
+  let spinner
+  if (options.silent) {
+    ora('[git-push-pr]: pushing code to remote\n').start()
+  }
 
   exec(gitPushStr, { silent: true }, async (code, stdout, stderr) => {
     // 6. Stop if git push failed for some reason
@@ -62,15 +65,19 @@ async function gitPushPR(options) {
     }
 
     // 7. Set status to successful and log output
-    spinner.succeed(chalk.green('[git-push-pr]: pushed code to remote'))
-    log(stdout)
-    log(stderr)
+    if (options.silent) {
+      spinner.succeed(chalk.green('[git-push-pr]: pushed code to remote'))
+      log(stdout)
+      log(stderr)
+    }
 
     // 8. Create a Pull Request
     const { stdout: remoteUrl } = exec(`git remote get-url ${options.remote}`, { silent: true })
     const pullRequestUrl = getPullRequestUrl(remoteUrl, currentBranch)
     await open(pullRequestUrl)
-    spinner.succeed(chalk.green(`[git-push-pr]: pull request ready at: ${pullRequestUrl}`))
+    if (options.silent) {
+      spinner.succeed(chalk.green(`[git-push-pr]: pull request ready at: ${pullRequestUrl}`))
+    }
   })
 }
 
