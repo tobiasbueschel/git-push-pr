@@ -43,6 +43,8 @@
   "devDependencies": {
     "@commitlint/config-conventional": "^7.5.0",
     "@commitlint/travis-cli": "^7.5.2",
+    "@semantic-release/changelog": "^3.0.2",
+    "@semantic-release/git": "^7.0.8",
     "commitlint": "^7.5.2",
     "eslint": "^5.16.0",
     "eslint-config-prettier": "^4.1.0",
@@ -89,6 +91,21 @@
     "*.{js,json}": [
       "prettier --write",
       "git add"
+    ]
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/github",
+      [
+        "@semantic-release/git",
+        {
+          "message": "chore: release ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+        }
+      ]
     ]
   }
 }
