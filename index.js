@@ -53,8 +53,8 @@ async function gitPushPR(options) {
 
   // 5. Push to remote
   let spinner
-  if (options.silent) {
-    ora('[git-push-pr]: pushing code to remote\n').start()
+  if (!options.silent) {
+    spinner = ora('[git-push-pr]: pushing code to remote\n').start()
   }
 
   exec(gitPushStr, { silent: true }, async (code, stdout, stderr) => {
@@ -65,7 +65,7 @@ async function gitPushPR(options) {
     }
 
     // 7. Set status to successful and log output
-    if (options.silent) {
+    if (!options.silent) {
       spinner.succeed(chalk.green('[git-push-pr]: pushed code to remote'))
       log(stdout)
       log(stderr)
@@ -75,7 +75,7 @@ async function gitPushPR(options) {
     const { stdout: remoteUrl } = exec(`git remote get-url ${options.remote}`, { silent: true })
     const pullRequestUrl = getPullRequestUrl(remoteUrl, currentBranch)
     await open(pullRequestUrl)
-    if (options.silent) {
+    if (!options.silent) {
       spinner.succeed(chalk.green(`[git-push-pr]: pull request ready at: ${pullRequestUrl}`))
     }
   })
