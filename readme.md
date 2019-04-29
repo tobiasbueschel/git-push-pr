@@ -36,6 +36,10 @@ $ gppr --help
 	  $ gppr -f
 ```
 
+## Related
+
+- [git-is-branch-protected-cli](https://github.com/tobiasbueschel/git-is-branch-protected-cli) - CLI to check whether current Git branch is protected.
+
 ## License
 
 MIT © [Tobias Büschel](https://github.com/tobiasbueschel)
