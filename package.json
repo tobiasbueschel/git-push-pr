@@ -45,7 +45,7 @@
     "@commitlint/travis-cli": "^7.5.2",
     "@semantic-release/changelog": "^3.0.2",
     "@semantic-release/git": "^7.0.8",
-    "commitlint": "^7.5.2",
+    "commitlint": "^8.0.0",
     "eslint": "^5.16.0",
     "eslint-config-prettier": "^4.1.0",
     "eslint-plugin-prettier": "^3.0.1",
