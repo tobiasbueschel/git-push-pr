@@ -1,3 +1,10 @@
+## [1.2.3](https://github.com/tobiasbueschel/git-push-pr/compare/v1.2.2...v1.2.3) (2019-06-24)
+
+
+### Bug Fixes
+
+* incorrect regex to handle fallback git PR url ([df75b20](https://github.com/tobiasbueschel/git-push-pr/commit/df75b20))
+
 ## [1.2.2](https://github.com/tobiasbueschel/git-push-pr/compare/v1.2.1...v1.2.2) (2019-06-24)
 
 
