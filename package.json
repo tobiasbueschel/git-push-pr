@@ -47,7 +47,7 @@
     "@semantic-release/git": "^7.0.8",
     "commitlint": "^7.5.2",
     "eslint": "^6.0.0",
-    "eslint-config-prettier": "^4.1.0",
+    "eslint-config-prettier": "^5.0.0",
     "eslint-plugin-prettier": "^3.0.1",
     "husky": "^2.0.0",
     "lint-staged": "^8.1.5",
