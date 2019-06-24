@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/tobiasbueschel/git-push-pr/compare/v1.2.1...v1.2.2) (2019-06-24)
+
+
+### Bug Fixes
+
+* add missing "stderr" parameter ([366968d](https://github.com/tobiasbueschel/git-push-pr/commit/366968d))
+
 ## [1.2.1](https://github.com/tobiasbueschel/git-push-pr/compare/v1.2.0...v1.2.1) (2019-06-24)
 
 
