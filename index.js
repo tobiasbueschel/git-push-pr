@@ -10,7 +10,7 @@ const { log } = console
 
 const PROTECTED_BRANCHES = ['master', 'develop']
 
-function getPullRequestUrl(remote, currentBranch) {
+function getPullRequestUrl(remote, currentBranch, stderr) {
   const address = GitUrlParse(remote)
   let url = `https://${address.resource}/${address.owner}/${address.name}/`
   if (address.source === 'github.com') {
