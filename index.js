@@ -19,6 +19,13 @@ function getPullRequestUrl(remote, currentBranch) {
     url += `pull-requests/new?source=${currentBranch}&t=1`
   } else if (address.source === 'gitlab.com') {
     url += `merge_requests/new?merge_request%5Bsource_branch%5D=${currentBranch}`
+  } else {
+    // If we don't encounter a repository hosted on the public GitHub, BitBucket or GitLab,
+    // we try to fallback to the PR URL as outputted by the stderr of "git push".
+    const prUrl = stderr.match(/https?\/\/\S*\n/)
+    if (prUrl) {
+      url = prUrl[0].replace('\n', '')
+    }
   }
   return url
 }
@@ -75,7 +82,7 @@ async function gitPushPR(options) {
 
     // 8. Create a Pull Request
     const { stdout: remoteUrl } = exec(`git remote get-url ${options.remote}`, { silent: true })
-    const pullRequestUrl = getPullRequestUrl(remoteUrl, currentBranch)
+    const pullRequestUrl = getPullRequestUrl(remoteUrl, currentBranch, stderr)
     await open(pullRequestUrl)
     if (!options.silent) {
       spinner.succeed(chalk.green(`[git-push-pr]: pull request ready at: ${pullRequestUrl}`))
