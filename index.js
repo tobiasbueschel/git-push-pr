@@ -22,7 +22,7 @@ function getPullRequestUrl(remote, currentBranch, stderr) {
   } else {
     // If we don't encounter a repository hosted on the public GitHub, BitBucket or GitLab,
     // we try to fallback to the PR URL as outputted by the stderr of "git push".
-    const prUrl = stderr.match(/https?\/\/\S*\n/)
+    const prUrl = stderr.match(/https?:\/\/\S*/)
     if (prUrl) {
       url = prUrl[0].replace('\n', '')
     }
