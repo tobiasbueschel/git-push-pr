@@ -1,6 +1,6 @@
 {
   "name": "git-push-pr",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Git push and open pull request",
   "license": "MIT",
   "repository": "https://github.com/tobiasbueschel/git-push-pr",
@@ -41,13 +41,13 @@
     "shelljs": "^0.8.3"
   },
   "devDependencies": {
-    "@commitlint/config-conventional": "^7.5.0",
-    "@commitlint/travis-cli": "^7.5.2",
+    "@commitlint/config-conventional": "^8.0.0",
+    "@commitlint/travis-cli": "^8.0.0",
     "@semantic-release/changelog": "^3.0.2",
     "@semantic-release/git": "^7.0.8",
     "commitlint": "^8.0.0",
-    "eslint": "^5.16.0",
-    "eslint-config-prettier": "^4.1.0",
+    "eslint": "^6.0.0",
+    "eslint-config-prettier": "^5.0.0",
     "eslint-plugin-prettier": "^3.0.1",
     "husky": "^2.0.0",
     "lint-staged": "^8.1.5",
