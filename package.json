@@ -50,7 +50,7 @@
     "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-prettier": "^3.0.1",
     "husky": "^3.0.0",
-    "lint-staged": "^9.0.0",
+    "lint-staged": "^10.0.8",
     "prettier": "^1.17.0",
     "semantic-release": "^16.0.0"
   },
@@ -89,8 +89,7 @@
   },
   "lint-staged": {
     "*.{js,json}": [
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ]
   },
   "release": {
