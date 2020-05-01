@@ -38,7 +38,7 @@
     "meow": "^6.0.0",
     "open": "^7.0.0",
     "ora": "^4.0.0",
-    "shelljs": "^0.8.3"
+    "shelljs": "^0.8.4"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^8.0.0",
