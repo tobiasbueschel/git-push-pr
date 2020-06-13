@@ -66,7 +66,7 @@ async function gitPushPR(options) {
 
   exec(gitPushStr, { silent: true }, async (code, stdout, stderr) => {
     // 6. Stop if git push failed for some reason
-    if (code === 1) {
+    if (code !== 0) {
       log(stdout)
       log(stderr)
       spinner.fail(chalk.red('[git-push-pr]: git push failed'))
