@@ -1,3 +1,10 @@
+## [1.2.4](https://github.com/tobiasbueschel/git-push-pr/compare/v1.2.3...v1.2.4) (2020-06-13)
+
+
+### Bug Fixes
+
+* exit process when return code of git push is not 0 ([#58](https://github.com/tobiasbueschel/git-push-pr/issues/58)) ([66f5010](https://github.com/tobiasbueschel/git-push-pr/commit/66f5010e219417aa0726b864f66f085b019c2f9c))
+
 ## [1.2.3](https://github.com/tobiasbueschel/git-push-pr/compare/v1.2.2...v1.2.3) (2019-06-24)
 
 
