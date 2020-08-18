@@ -35,9 +35,9 @@
     "chalk": "^4.1.0",
     "git-branch": "^2.0.1",
     "git-url-parse": "^11.1.2",
-    "meow": "^7.0.1",
+    "meow": "^7.1.0",
     "open": "^7.1.0",
-    "ora": "^4.0.4",
+    "ora": "^4.0.5",
     "shelljs": "^0.8.4"
   },
   "devDependencies": {
