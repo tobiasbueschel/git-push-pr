@@ -1,3 +1,11 @@
+## [1.2.5](https://github.com/tobiasbueschel/git-push-pr/compare/v1.2.4...v1.2.5) (2020-08-18)
+
+
+### Bug Fixes
+
+* upgrade meow from 7.0.1 to 7.1.0 ([#64](https://github.com/tobiasbueschel/git-push-pr/issues/64)) ([b8b3daa](https://github.com/tobiasbueschel/git-push-pr/commit/b8b3daa90b4d763d5a3b26008b1a89b947d6a85a))
+* upgrade ora from 4.0.4 to 4.0.5 ([#61](https://github.com/tobiasbueschel/git-push-pr/issues/61)) ([74cf3d4](https://github.com/tobiasbueschel/git-push-pr/commit/74cf3d45a119ad9e172d0525176e771746753c80))
+
 ## [1.2.4](https://github.com/tobiasbueschel/git-push-pr/compare/v1.2.3...v1.2.4) (2020-06-13)
 
 
