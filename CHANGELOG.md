@@ -1,3 +1,10 @@
+## [1.2.7](https://github.com/tobiasbueschel/git-push-pr/compare/v1.2.6...v1.2.7) (2020-08-18)
+
+
+### Bug Fixes
+
+* upgrade git-url-parse from 11.1.2 to 11.1.3 ([#63](https://github.com/tobiasbueschel/git-push-pr/issues/63)) ([8a06d6a](https://github.com/tobiasbueschel/git-push-pr/commit/8a06d6a5c2449860018970af687e650315f258c0))
+
 ## [1.2.6](https://github.com/tobiasbueschel/git-push-pr/compare/v1.2.5...v1.2.6) (2020-08-18)
 
 
