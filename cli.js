@@ -13,7 +13,7 @@ const cli = meow(
 	  --allow-all, -a Allow pushes to master and develop
 	  --silent, -s Do not show any progress
 	  --force, -f Push changes even if remote is newer, use with caution
-	  --no-verify Bypass pre-push hooks
+	  --no-verify, -n Bypass pre-push hooks
 
 	Examples
 	  $ gppr -f
@@ -42,7 +42,8 @@ const cli = meow(
       },
       verify: {
         type: 'boolean',
-        default: true
+        default: true,
+        alias: 'n'
       }
     }
   }
