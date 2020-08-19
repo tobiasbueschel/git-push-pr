@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/tobiasbueschel/git-push-pr/compare/v1.2.8...v1.3.0) (2020-08-19)
+
+
+### Features
+
+* add alias -n for --no-verify option ([#66](https://github.com/tobiasbueschel/git-push-pr/issues/66)) ([68f0b2a](https://github.com/tobiasbueschel/git-push-pr/commit/68f0b2ac277792fa4cfc85244dc5766f3eefea00))
+
 ## [1.2.8](https://github.com/tobiasbueschel/git-push-pr/compare/v1.2.7...v1.2.8) (2020-08-19)
 
 
