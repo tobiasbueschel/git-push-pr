@@ -1,3 +1,10 @@
+## [1.2.8](https://github.com/tobiasbueschel/git-push-pr/compare/v1.2.7...v1.2.8) (2020-08-19)
+
+
+### Bug Fixes
+
+* upgrade ora from 4.0.5 to 4.1.1 ([#65](https://github.com/tobiasbueschel/git-push-pr/issues/65)) ([4911ae8](https://github.com/tobiasbueschel/git-push-pr/commit/4911ae8bad73bcc3a00842f0a261911e6e053508))
+
 ## [1.2.7](https://github.com/tobiasbueschel/git-push-pr/compare/v1.2.6...v1.2.7) (2020-08-18)
 
 
