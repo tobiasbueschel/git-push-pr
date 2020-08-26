@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/tobiasbueschel/git-push-pr/compare/v1.3.0...v1.3.1) (2020-08-26)
+
+
+### Bug Fixes
+
+* upgrade open from 7.1.0 to 7.2.0 ([#67](https://github.com/tobiasbueschel/git-push-pr/issues/67)) ([b5ff8be](https://github.com/tobiasbueschel/git-push-pr/commit/b5ff8be86ed8bbbda7a7abbc14f616218f02e54c))
+
 # [1.3.0](https://github.com/tobiasbueschel/git-push-pr/compare/v1.2.8...v1.3.0) (2020-08-19)
 
 
