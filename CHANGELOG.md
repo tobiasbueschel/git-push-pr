@@ -1,3 +1,10 @@
+## [1.3.4](https://github.com/tobiasbueschel/git-push-pr/compare/v1.3.3...v1.3.4) (2020-10-24)
+
+
+### Bug Fixes
+
+* upgrade meow from 7.1.0 to 7.1.1 ([#69](https://github.com/tobiasbueschel/git-push-pr/issues/69)) ([98124c8](https://github.com/tobiasbueschel/git-push-pr/commit/98124c8ede754e2fa16bee04428b979c994f5b62))
+
 ## [1.3.3](https://github.com/tobiasbueschel/git-push-pr/compare/v1.3.2...v1.3.3) (2020-10-24)
 
 
