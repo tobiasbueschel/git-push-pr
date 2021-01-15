@@ -1,3 +1,11 @@
+## [1.3.6](https://github.com/tobiasbueschel/git-push-pr/compare/v1.3.5...v1.3.6) (2021-01-15)
+
+
+### Bug Fixes
+
+* upgrade git-url-parse from 11.4.0 to 11.4.3 ([#76](https://github.com/tobiasbueschel/git-push-pr/issues/76)) ([db1f505](https://github.com/tobiasbueschel/git-push-pr/commit/db1f505e6cd56d8f739de63c77855b4ebe2bcaef))
+* upgrade open from 7.3.0 to 7.3.1 ([#77](https://github.com/tobiasbueschel/git-push-pr/issues/77)) ([54e2ee9](https://github.com/tobiasbueschel/git-push-pr/commit/54e2ee92734f351011465b80eccab74562cf5840))
+
 ## [1.3.5](https://github.com/tobiasbueschel/git-push-pr/compare/v1.3.4...v1.3.5) (2020-11-08)
 
 
