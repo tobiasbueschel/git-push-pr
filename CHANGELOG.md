@@ -1,3 +1,10 @@
+## [1.3.10](https://github.com/tobiasbueschel/git-push-pr/compare/v1.3.9...v1.3.10) (2021-02-18)
+
+
+### Bug Fixes
+
+* upgrade open from 7.4.1 to 7.4.2 ([#81](https://github.com/tobiasbueschel/git-push-pr/issues/81)) ([c6e3efe](https://github.com/tobiasbueschel/git-push-pr/commit/c6e3efecb993c8dacb3823c6cdfece2792baadc9))
+
 ## [1.3.9](https://github.com/tobiasbueschel/git-push-pr/compare/v1.3.8...v1.3.9) (2021-02-17)
 
 
