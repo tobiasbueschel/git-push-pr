@@ -1,3 +1,11 @@
+## [1.3.11](https://github.com/tobiasbueschel/git-push-pr/compare/v1.3.10...v1.3.11) (2021-05-30)
+
+
+### Bug Fixes
+
+* package.json & package-lock.json to reduce vulnerabilities ([#82](https://github.com/tobiasbueschel/git-push-pr/issues/82)) ([eeed160](https://github.com/tobiasbueschel/git-push-pr/commit/eeed160e29dd830a7985b57c0357156333129b3b))
+* upgrade chalk from 4.1.0 to 4.1.1 ([#84](https://github.com/tobiasbueschel/git-push-pr/issues/84)) ([8667776](https://github.com/tobiasbueschel/git-push-pr/commit/86677764855c06eb94fd349d1cf872cc6eb180c6))
+
 ## [1.3.10](https://github.com/tobiasbueschel/git-push-pr/compare/v1.3.9...v1.3.10) (2021-02-18)
 
 
