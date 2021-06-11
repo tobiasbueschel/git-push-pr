@@ -1,3 +1,10 @@
+## [1.3.12](https://github.com/tobiasbueschel/git-push-pr/compare/v1.3.11...v1.3.12) (2021-06-11)
+
+
+### Bug Fixes
+
+* upgrade meow from 8.0.0 to 8.1.2 ([#88](https://github.com/tobiasbueschel/git-push-pr/issues/88)) ([f45f491](https://github.com/tobiasbueschel/git-push-pr/commit/f45f4911eafe0a3bc8d5299f6196a4892eddc033))
+
 ## [1.3.11](https://github.com/tobiasbueschel/git-push-pr/compare/v1.3.10...v1.3.11) (2021-05-30)
 
 

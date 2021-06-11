@@ -1,6 +1,6 @@
 {
   "name": "git-push-pr",
-  "version": "1.3.11",
+  "version": "1.3.12",
   "description": "Git push and open pull request",
   "license": "MIT",
   "repository": "https://github.com/tobiasbueschel/git-push-pr",
