@@ -1,3 +1,11 @@
+## [1.3.13](https://github.com/tobiasbueschel/git-push-pr/compare/v1.3.12...v1.3.13) (2021-08-06)
+
+
+### Bug Fixes
+
+* upgrade chalk from 4.1.1 to 4.1.2 ([#92](https://github.com/tobiasbueschel/git-push-pr/issues/92)) ([c35683f](https://github.com/tobiasbueschel/git-push-pr/commit/c35683ffacaef6588240a02da3558ffb9d687e4e))
+* upgrade git-url-parse from 11.4.4 to 11.5.0 ([#91](https://github.com/tobiasbueschel/git-push-pr/issues/91)) ([919e1e7](https://github.com/tobiasbueschel/git-push-pr/commit/919e1e7734fb96b95ed42ec90dadfc7458154325))
+
 ## [1.3.12](https://github.com/tobiasbueschel/git-push-pr/compare/v1.3.11...v1.3.12) (2021-06-11)
 
 
