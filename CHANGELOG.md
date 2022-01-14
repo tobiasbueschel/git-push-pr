@@ -1,3 +1,10 @@
+## [1.3.14](https://github.com/tobiasbueschel/git-push-pr/compare/v1.3.13...v1.3.14) (2022-01-14)
+
+
+### Bug Fixes
+
+* package.json & package-lock.json to reduce vulnerabilities ([#97](https://github.com/tobiasbueschel/git-push-pr/issues/97)) ([f41da95](https://github.com/tobiasbueschel/git-push-pr/commit/f41da955c731fc456312badc4e2486b7cfd1dd08))
+
 ## [1.3.13](https://github.com/tobiasbueschel/git-push-pr/compare/v1.3.12...v1.3.13) (2021-08-06)
 
 
