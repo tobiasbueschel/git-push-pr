@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/tobiasbueschel/git-push-pr/compare/v1.3.15...v1.4.0) (2022-05-06)
+
+
+### Features
+
+* add main to default protected branches ([5fecfe5](https://github.com/tobiasbueschel/git-push-pr/commit/5fecfe5bb2ea18713f59e3f11319d627dcf9fcca))
+
 ## [1.3.15](https://github.com/tobiasbueschel/git-push-pr/compare/v1.3.14...v1.3.15) (2022-01-14)
 
 
