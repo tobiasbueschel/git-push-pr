@@ -25,7 +25,7 @@ gppr --help
 
   Options
     --remote, -r Specify remote name [Default: origin]
-    --allow-all, -a Allow pushes to master and develop
+    --allow-all, -a Allow pushes to master, main and develop
     --silent, -s Do not show any progress
     --force, -f Push changes even if remote is newer, use with caution
     --no-verify Bypass pre-push hooks

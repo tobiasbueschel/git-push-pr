@@ -8,7 +8,7 @@ const { exec, which } = require('shelljs')
 const { exit } = process
 const { log } = console
 
-const PROTECTED_BRANCHES = ['master', 'develop']
+const PROTECTED_BRANCHES = ['master', 'main', 'develop']
 
 function getPullRequestUrl(remote, currentBranch, stderr) {
   const address = GitUrlParse(remote)
@@ -48,7 +48,7 @@ async function gitPushPR(options) {
 
   // 3. Stop if currently on protected branch (optional)
   if (!options.allowAll && PROTECTED_BRANCHES.includes(currentBranch)) {
-    log(chalk.red('[git-push-pr]: cannot push protected (master|develop) branch'))
+    log(chalk.red('[git-push-pr]: cannot push protected (master|main|develop) branch'))
     exit(1)
   }
 

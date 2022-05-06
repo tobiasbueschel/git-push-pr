@@ -1,3 +1,25 @@
+# [1.4.0](https://github.com/tobiasbueschel/git-push-pr/compare/v1.3.15...v1.4.0) (2022-05-06)
+
+
+### Features
+
+* add main to default protected branches ([5fecfe5](https://github.com/tobiasbueschel/git-push-pr/commit/5fecfe5bb2ea18713f59e3f11319d627dcf9fcca))
+
+## [1.3.15](https://github.com/tobiasbueschel/git-push-pr/compare/v1.3.14...v1.3.15) (2022-01-14)
+
+
+### Bug Fixes
+
+* upgrade git-url-parse from 11.5.0 to 11.6.0 ([#94](https://github.com/tobiasbueschel/git-push-pr/issues/94)) ([ad2c5ee](https://github.com/tobiasbueschel/git-push-pr/commit/ad2c5eefb212a56fa37e6786d845fea19d22c92c))
+* upgrade shelljs from 0.8.4 to 0.8.5 ([#96](https://github.com/tobiasbueschel/git-push-pr/issues/96)) ([0be25d8](https://github.com/tobiasbueschel/git-push-pr/commit/0be25d8b151692f14d286ccd95421c2bef6e54a3))
+
+## [1.3.14](https://github.com/tobiasbueschel/git-push-pr/compare/v1.3.13...v1.3.14) (2022-01-14)
+
+
+### Bug Fixes
+
+* package.json & package-lock.json to reduce vulnerabilities ([#97](https://github.com/tobiasbueschel/git-push-pr/issues/97)) ([f41da95](https://github.com/tobiasbueschel/git-push-pr/commit/f41da955c731fc456312badc4e2486b7cfd1dd08))
+
 ## [1.3.13](https://github.com/tobiasbueschel/git-push-pr/compare/v1.3.12...v1.3.13) (2021-08-06)
 
 
