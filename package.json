@@ -34,7 +34,7 @@
   "dependencies": {
     "chalk": "^4.1.2",
     "git-branch": "^2.0.1",
-    "git-url-parse": "^11.6.0",
+    "git-url-parse": "^13.0.0",
     "meow": "^8.1.2",
     "open": "^7.4.2",
     "ora": "^6.1.0",
