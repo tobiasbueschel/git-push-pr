@@ -5,7 +5,7 @@
 [![MIT License](https://img.shields.io/npm/l/git-push-pr.svg?style=flat-square)](http://opensource.org/licenses/MIT)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square)](https://github.com/semantic-release/semantic-release)
 
-> Git push and open pull request in your default browser (works for GitHub, GitLab and Bitbucket)
+> Git push and automatically open pull request in your default browser (works for GitHub, GitLab and Bitbucket)
 
 ![demo](./demo.gif)
 
@@ -25,7 +25,7 @@ gppr --help
 
   Options
     --remote, -r Specify remote name [Default: origin]
-    --allow-all, -a Allow pushes to master, main and develop
+    --allow-all, -a Allow pushes to main, master and develop
     --silent, -s Do not show any progress
     --force, -f Push changes even if remote is newer, use with caution
     --no-verify Bypass pre-push hooks

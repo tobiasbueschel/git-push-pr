@@ -1,16 +1,15 @@
-'use strict'
-const ora = require('ora')
-const chalk = require('chalk')
-const open = require('open')
-const branch = require('git-branch')
-const GitUrlParse = require('git-url-parse')
-const { exec, which } = require('shelljs')
+import ora from 'ora'
+import chalk from 'chalk'
+import open from 'open'
+import branch from 'git-branch'
+import GitUrlParse from 'git-url-parse'
+import { exec, which } from 'shelljs'
 const { exit } = process
 const { log } = console
 
-const PROTECTED_BRANCHES = ['master', 'main', 'develop']
+const PROTECTED_BRANCHES = ['main', 'master', 'develop']
 
-function getPullRequestUrl(remote, currentBranch, stderr) {
+export function getPullRequestUrl(remote, currentBranch, stderr) {
   const address = GitUrlParse(remote)
   let url = `https://${address.resource}/${address.owner}/${address.name}/`
   if (address.source === 'github.com') {
@@ -48,7 +47,7 @@ async function gitPushPR(options) {
 
   // 3. Stop if currently on protected branch (optional)
   if (!options.allowAll && PROTECTED_BRANCHES.includes(currentBranch)) {
-    log(chalk.red('[git-push-pr]: cannot push protected (master|main|develop) branch'))
+    log(chalk.red('[git-push-pr]: cannot push protected (main|master|develop) branch'))
     exit(1)
   }
 
@@ -90,4 +89,4 @@ async function gitPushPR(options) {
   })
 }
 
-module.exports = gitPushPR
+export default gitPushPR

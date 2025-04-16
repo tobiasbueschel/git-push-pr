@@ -8,6 +8,7 @@
   "bugs": {
     "url": "https://github.com/tobiasbueschel/git-push-pr/issues"
   },
+  "type": "module",
   "bin": {
     "gppr": "cli.js"
   },
@@ -29,7 +30,8 @@
   ],
   "scripts": {
     "lint": "eslint '*.js'",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "test": "vitest run --globals"
   },
   "dependencies": {
     "chalk": "^4.1.2",
@@ -51,7 +53,8 @@
     "husky": "^4.2.5",
     "lint-staged": "^10.2.10",
     "prettier": "^2.0.5",
-    "semantic-release": "^19.0.3"
+    "semantic-release": "^19.0.3",
+    "vitest": "^1.0.0"
   },
   "eslintConfig": {
     "extends": [

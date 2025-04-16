@@ -1,7 +1,6 @@
 #!/usr/bin/env node
-'use strict'
-const meow = require('meow')
-const gitPushPR = require('.')
+import meow from 'meow'
+import gitPushPR from './index.js'
 
 const cli = meow(
   `
@@ -10,7 +9,7 @@ const cli = meow(
 
 	Options
 	  --remote, -r Specify remote name [Default: origin]
-	  --allow-all, -a Allow pushes to master and develop
+	  --allow-all, -a Allow pushes to main, master and develop
 	  --silent, -s Do not show any progress
 	  --force, -f Push changes even if remote is newer, use with caution
 	  --no-verify, -n Bypass pre-push hooks
