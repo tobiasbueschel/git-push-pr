@@ -54,7 +54,7 @@
     "lint-staged": "^10.2.10",
     "prettier": "^2.0.5",
     "semantic-release": "^24.2.7",
-    "vitest": "^1.0.0"
+    "vitest": "^3.2.4"
   },
   "eslintConfig": {
     "extends": [
