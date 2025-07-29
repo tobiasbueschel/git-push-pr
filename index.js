@@ -63,28 +63,57 @@ async function gitPushPR(options) {
     spinner = ora('[git-push-pr]: pushing code to remote\n').start()
   }
 
-  exec(gitPushStr, { silent: true }, async (code, stdout, stderr) => {
+  const child = exec(gitPushStr, { async: true, silent: true })
+
+  // Stream stdout in real-time
+  child.stdout.on('data', (data) => {
+    if (!options.silent && spinner) {
+      spinner.clear()
+      log(data.toString().trimEnd())
+      spinner.render()
+    }
+  })
+
+  // Stream stderr in real-time
+  child.stderr.on('data', (data) => {
+    if (!options.silent && spinner) {
+      spinner.clear()
+      log(data.toString().trimEnd())
+      spinner.render()
+    }
+  })
+
+  child.on('exit', async (code) => {
     // 6. Stop if git push failed for some reason
     if (code !== 0) {
-      log(stdout)
-      log(stderr)
-      spinner.fail(chalk.red('[git-push-pr]: git push failed'))
+      if (!options.silent && spinner) {
+        spinner.fail(chalk.red('[git-push-pr]: git push failed'))
+      } else if (options.silent) {
+        // In silent mode, still output errors to help with debugging
+        log(chalk.red('[git-push-pr]: git push failed'))
+      }
       exit(1)
     }
 
-    // 7. Set status to successful and log output
-    if (!options.silent) {
+    // 7. Mark push as successful
+    if (!options.silent && spinner) {
       spinner.succeed(chalk.green('[git-push-pr]: pushed code to remote'))
-      log(stdout)
-      log(stderr)
     }
 
-    // 8. Create a Pull Request
-    const { stdout: remoteUrl } = exec(`git remote get-url ${options.remote}`, { silent: true })
-    const pullRequestUrl = getPullRequestUrl(remoteUrl, currentBranch, stderr)
-    await open(pullRequestUrl)
+    // 8. Create a new spinner for PR creation
+    let prSpinner
     if (!options.silent) {
-      spinner.succeed(chalk.green(`[git-push-pr]: pull request ready at: ${pullRequestUrl}`))
+      prSpinner = ora('[git-push-pr]: creating pull request\n').start()
+    }
+
+    // 9. Create a Pull Request
+    const { stdout: remoteUrl } = exec(`git remote get-url ${options.remote}`, { silent: true })
+    const pullRequestUrl = getPullRequestUrl(remoteUrl, currentBranch, child.stderr || '')
+    await open(pullRequestUrl)
+
+    // 10. Mark PR creation as successful
+    if (!options.silent && prSpinner) {
+      prSpinner.succeed(chalk.green(`[git-push-pr]: pull request ready at: ${pullRequestUrl}`))
     }
   })
 }
