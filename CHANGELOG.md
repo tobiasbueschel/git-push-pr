@@ -1,3 +1,18 @@
+# [1.5.0](https://github.com/tobiasbueschel/git-push-pr/compare/v1.4.0...v1.5.0) (2025-07-29)
+
+
+### Bug Fixes
+
+* package.json & package-lock.json to reduce vulnerabilities ([#123](https://github.com/tobiasbueschel/git-push-pr/issues/123)) ([00ebb9a](https://github.com/tobiasbueschel/git-push-pr/commit/00ebb9aa8a051171ca293e34d0cde446cf72f80a))
+* upgrade ora from 6.1.0 to 6.3.1 ([#120](https://github.com/tobiasbueschel/git-push-pr/issues/120)) ([0367507](https://github.com/tobiasbueschel/git-push-pr/commit/03675072ff2291d1526c1f41919bddf5d8d3c9d4))
+
+
+### Features
+
+* add .gitattributes for consistent EOL handling ([45e9d99](https://github.com/tobiasbueschel/git-push-pr/commit/45e9d999e53b32d5054a843e6c2e3b7b1794bcb0))
+* enhance git push PR command with real-time streaming and improved tests ([e72a2f0](https://github.com/tobiasbueschel/git-push-pr/commit/e72a2f0965f3e1e31fc4413b8c0b90cba10452d9))
+* integrate Vitest for testing and transition to ECMAScript modules ([ea6bdda](https://github.com/tobiasbueschel/git-push-pr/commit/ea6bdda83cef6ea0b074b598cb5f36478048d9b7))
+
 # [1.4.0](https://github.com/tobiasbueschel/git-push-pr/compare/v1.3.15...v1.4.0) (2022-05-06)
 
 
