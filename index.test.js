@@ -17,43 +17,54 @@ vi.mock('open', () => ({
 }))
 
 vi.mock('shelljs', () => ({
-  exec: vi.fn().mockImplementation((cmd, options, callback) => {
-    if (cmd.includes('git remote get-url')) {
-      return { stdout: 'https://github.com/user/repo.git' }
-    }
-
-    // Handle async exec for git push
-    if (options && options.async) {
-      const mockChild = {
-        stdout: {
-          on: vi.fn((event, handler) => {
-            if (event === 'data') {
-              // Simulate some stdout data
-              setTimeout(() => handler(Buffer.from('Everything up-to-date\n')), 10)
-            }
-          })
-        },
-        stderr: {
-          on: vi.fn((event, handler) => {
-            // No stderr by default
-          })
-        },
-        on: vi.fn((event, handler) => {
-          if (event === 'exit') {
-            // Simulate successful exit
-            setTimeout(() => handler(0), 20)
-          }
-        })
+  default: {
+    exec: vi.fn().mockImplementation((cmd, options, callback) => {
+      if (cmd.includes('git remote get-url')) {
+        return { stdout: 'https://github.com/user/repo.git' }
       }
-      return mockChild
-    }
 
-    if (callback) {
-      callback(0, 'success', '')
-    }
-    return { code: 0, stdout: 'success', stderr: '' }
-  }),
-  which: vi.fn().mockReturnValue(true)
+      // Handle async exec for git push
+      if (options && options.async) {
+        // Create a mock child process that can be killed and emits exit afterwards
+        let killed = false
+        const listeners = { exit: [] }
+        const mockChild = {
+          stdout: {
+            on: vi.fn((event, handler) => {
+              if (event === 'data') {
+                setTimeout(() => handler(Buffer.from('Everything up-to-date\n')), 10)
+              }
+            })
+          },
+          stderr: {
+            on: vi.fn((event, handler) => {
+              // no stderr by default
+            })
+          },
+          on: vi.fn((event, handler) => {
+            if (event === 'exit') {
+              listeners.exit.push(handler)
+              // Simulate successful exit after a short delay unless killed
+              setTimeout(() => {
+                const code = killed ? 1 : 0
+                listeners.exit.forEach((cb) => cb(code))
+              }, 20)
+            }
+          }),
+          kill: vi.fn(() => {
+            killed = true
+          })
+        }
+        return mockChild
+      }
+
+      if (callback) {
+        callback(0, 'success', '')
+      }
+      return { code: 0, stdout: 'success', stderr: '' }
+    }),
+    which: vi.fn().mockReturnValue(true)
+  }
 }))
 
 vi.mock('git-branch', () => ({
@@ -66,7 +77,8 @@ console.log = vi.fn()
 import ora from 'ora'
 import open from 'open'
 import gitPushPR, { getPullRequestUrl } from './index.js'
-import { exec, which } from 'shelljs'
+import shell from 'shelljs'
+const { exec, which } = shell
 import branch from 'git-branch'
 
 let exitSpy
@@ -158,6 +170,21 @@ describe('gitPushPR', () => {
     const promise = gitPushPR({ remote: 'origin' })
     await new Promise((resolve) => setTimeout(resolve, 50))
     expect(open).toHaveBeenCalled()
+    await promise
+  })
+
+  it('should gracefully abort on SIGINT (Ctrl+C)', async () => {
+    // Start the process
+    const promise = gitPushPR({ remote: 'origin' })
+
+    // Emit SIGINT shortly after to simulate Ctrl+C
+    setTimeout(() => process.emit('SIGINT'), 5)
+
+    // Wait to allow the mocked child to exit and our handler to run
+    await new Promise((resolve) => setTimeout(resolve, 200))
+
+    // Since we no longer call process.exit on abort, just assert no PR was opened and spinner failed path was taken
+    expect(open).not.toHaveBeenCalled()
     await promise
   })
 

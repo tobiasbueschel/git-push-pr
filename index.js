@@ -3,7 +3,9 @@ import chalk from 'chalk'
 import open from 'open'
 import branch from 'git-branch'
 import GitUrlParse from 'git-url-parse'
-import { exec, which } from 'shelljs'
+import shell from 'shelljs'
+
+const { exec, which } = shell
 const { exit } = process
 const { log } = console
 
@@ -65,6 +67,26 @@ async function gitPushPR(options) {
 
   const child = exec(gitPushStr, { async: true, silent: true })
 
+  // Accumulate stderr so we can parse a PR URL for unknown git hosts
+  let stderrBuffer = ''
+
+  // Gracefully handle user aborts (e.g., Ctrl+C)
+  let aborted = false
+  const handleAbort = () => {
+    if (aborted) return
+    aborted = true
+    try {
+      if (child && typeof child.kill === 'function') {
+        child.kill('SIGINT')
+      }
+    } catch {
+      // Best-effort kill; ignore errors here
+    }
+  }
+  process.once('SIGINT', handleAbort)
+  process.once('SIGTERM', handleAbort)
+  process.once('SIGHUP', handleAbort)
+
   // Stream stdout in real-time
   child.stdout.on('data', (data) => {
     if (!options.silent && spinner) {
@@ -76,6 +98,7 @@ async function gitPushPR(options) {
 
   // Stream stderr in real-time
   child.stderr.on('data', (data) => {
+    stderrBuffer += data.toString()
     if (!options.silent && spinner) {
       spinner.clear()
       log(data.toString().trimEnd())
@@ -84,6 +107,22 @@ async function gitPushPR(options) {
   })
 
   child.on('exit', async (code) => {
+    // Clean up listeners on any exit
+    process.off('SIGINT', handleAbort)
+    process.off('SIGTERM', handleAbort)
+    process.off('SIGHUP', handleAbort)
+
+    // If user aborted, show a friendly message and exit
+    if (aborted) {
+      if (!options.silent && spinner) {
+        spinner.fail(chalk.yellow('[git-push-pr]: aborted by user'))
+      } else {
+        log(chalk.yellow('[git-push-pr]: aborted by user'))
+      }
+      // Do not forcefully exit; allow Node to exit naturally after cleanup
+      return
+    }
+
     // 6. Stop if git push failed for some reason
     if (code !== 0) {
       if (!options.silent && spinner) {
@@ -108,7 +147,7 @@ async function gitPushPR(options) {
 
     // 9. Create a Pull Request
     const { stdout: remoteUrl } = exec(`git remote get-url ${options.remote}`, { silent: true })
-    const pullRequestUrl = getPullRequestUrl(remoteUrl, currentBranch, child.stderr || '')
+    const pullRequestUrl = getPullRequestUrl(remoteUrl, currentBranch, stderrBuffer)
     await open(pullRequestUrl)
 
     // 10. Mark PR creation as successful

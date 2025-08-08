@@ -19,6 +19,19 @@ vi.mock('meow', () => ({
   }))
 }))
 
+// Ensure process.exit is mocked to prevent accidental exits during CLI import
+let exitSpy
+
+beforeEach(() => {
+  exitSpy = vi.spyOn(process, 'exit').mockImplementation((code) => {
+    throw new Error(`process.exit unexpectedly called with "${code}"`)
+  })
+})
+
+afterEach(() => {
+  exitSpy.mockRestore()
+})
+
 describe('CLI', () => {
   beforeEach(() => {
     vi.resetModules()
