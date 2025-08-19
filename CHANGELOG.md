@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/tobiasbueschel/git-push-pr/compare/v1.5.0...v1.5.1) (2025-08-19)
+
+
+### Bug Fixes
+
+* handle script terminations using e.g. ctrl + c ([#127](https://github.com/tobiasbueschel/git-push-pr/issues/127)) ([c11b4b5](https://github.com/tobiasbueschel/git-push-pr/commit/c11b4b5d8730d6bac3219e94d8e4d18b94fefcfe))
+
 # [1.5.0](https://github.com/tobiasbueschel/git-push-pr/compare/v1.4.0...v1.5.0) (2025-07-29)
 
 
